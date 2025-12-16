@@ -451,7 +451,7 @@ export default function DashboardPage() {
         const resQuery = query(collection(db, 'reservations'), where('date', '==', today));
 
         const unsubscribeReservations = onSnapshot(resQuery, (snapshot) => {
-            const fetchedReservations = snapshot.docs.map(doc => ({ ...doc.data(), docId: doc.id }));
+            const fetchedReservations = snapshot.docs.map(doc => ({ ...doc.data(), docId: doc.id } as Reservation));
             // Sort by time
             fetchedReservations.sort((a, b) => {
                 const timeA = parseInt(a.time.replace(':', ''));
