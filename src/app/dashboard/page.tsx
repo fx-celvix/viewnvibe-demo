@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 const ConfirmationModal = dynamic(() => import('@/components/ConfirmationModal').then(mod => mod.ConfirmationModal));
+const CreateOrderModal = dynamic(() => import('@/components/CreateOrderModal').then(mod => mod.CreateOrderModal));
 
 
 const flattenedMenuItems = []; // This will be populated from Firestore
@@ -352,6 +353,7 @@ export default function DashboardPage() {
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
 
     const [isEditingPlaylist, setIsEditingPlaylist] = useState(false);
@@ -483,6 +485,15 @@ export default function DashboardPage() {
         }
 
         await updateDoc(doc(db, 'orders', orderDocId), updateData);
+    };
+
+    const handleAddOrder = async (order: any) => {
+        try {
+            await addDoc(collection(db, 'orders'), order);
+            setIsCreateModalOpen(false);
+        } catch (error) {
+            console.error("Error adding order: ", error);
+        }
     };
 
     const confirmCancelOrder = (orderDocId: string) => {
@@ -910,6 +921,11 @@ export default function DashboardPage() {
                     <span className="text-sm font-semibold">Show Music</span>
                 </button>
             )}
+            <CreateOrderModal
+                isOpen={isCreateModalOpen}
+                onClose={() => setIsCreateModalOpen(false)}
+                onAddOrder={handleAddOrder}
+            />
             <UpdateModal
                 isOpen={isUpdateModalOpen}
                 onClose={() => setIsUpdateModalOpen(false)}
