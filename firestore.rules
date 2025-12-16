@@ -1,0 +1,47 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Allow owner full access to all collections
+    match /{document=**} {
+      allow read, write: if request.auth != null && request.auth.token.email == 'team.celvix@gmail.com';
+
+
+    }
+
+    // Allow clients to create new orders
+    match /orders/{orderId} {
+      allow create: if request.auth == null || request.auth.token.email != 'team.celvix@gmail.com';
+
+
+      allow read: if request.auth == null || request.auth.token.email != 'team.celvix@gmail.com';
+
+
+      allow update: if request.auth != null && request.auth.token.email == 'team.celvix@gmail.com';
+
+
+    }
+
+    // Allow anyone to create new reservations
+    match /reservations/{reservationId} {
+      allow create: if true;
+    }
+
+    // Allow clients to read the menu
+    match /menu/{document=**} {
+        allow read: if true;
+    }
+
+    // Allow logged-in users to manage their own data (e.g., addresses)
+    match /users/{userId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Allow anyone to read the order counters for ID generation
+    match /counters/{counterId} {
+      allow read, write: if true;
+    }
+  }
+}
