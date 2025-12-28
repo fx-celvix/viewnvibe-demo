@@ -143,8 +143,8 @@ export function SideMenu({ isOpen, onClose }: SideMenuProps) {
             <a href="/" className="flex items-start">
               <ArrowLeft className="h-8 w-8 mr-4 mt-2" />
               <div className="flex flex-col">
-                <span className="font-bold text-2xl">Beans Cafe,</span>
-                <span className="font-bold text-2xl">Bangalore!</span>
+                <span className="font-bold text-2xl">View N Vibe,</span>
+                <span className="font-bold text-2xl">McLeod Ganj</span>
               </div>
             </a>
           </div>
@@ -159,8 +159,8 @@ export function SideMenu({ isOpen, onClose }: SideMenuProps) {
             <a href="/" className="flex items-start">
               <ArrowLeft className="h-8 w-8 mr-4 mt-2 flex-shrink-0" />
               <div className="flex flex-col">
-                <span className="font-bold text-2xl">Beans Cafe,</span>
-                <span className="font-bold text-2xl">Bangalore!</span>
+                <span className="font-bold text-2xl">View N Vibe,</span>
+                <span className="font-bold text-2xl">McLeod Ganj</span>
               </div>
             </a>
           </div>

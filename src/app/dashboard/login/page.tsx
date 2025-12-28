@@ -41,7 +41,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-sm p-8 space-y-6 bg-white rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800">Beans Cafe</h1>
+          <h1 className="text-3xl font-bold text-gray-800">View N Vibe</h1>
           <p className="text-sm text-muted-foreground">Owner's Dashboard Login</p>
         </div>
         <form onSubmit={handleLogin} className="space-y-6">

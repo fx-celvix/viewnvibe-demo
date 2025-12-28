@@ -129,7 +129,7 @@ const growthHacks = [
     },
     {
         title: 'Event Promotion',
-        content: '“Live Music Night 🎶 at Beans Cafe this Saturday! Book your table now.”',
+        content: '“Live Music Night 🎶 at View N Vibe this Saturday! Book your table now.”',
         why: 'Boosts dine-in sales & creates community buzz.',
         imageUrl: 'https://i.pinimg.com/736x/6b/0a/ec/6b0aec27834c327e679cff8a73d3f61c.jpg',
         imageHint: 'live music event',
