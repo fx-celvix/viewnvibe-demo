@@ -22,7 +22,7 @@ export const FloatingWhatsApp = () => {
             </div>
 
             <a
-                href="https://wa.me/917979057085?text=Hi%2C%20I%E2%80%99d%20like%20to%20get%20the%20Growth%20Engine%20for%20my%20food%20business."
+                href="https://wa.me/917979057085?text=Hi%2C%20I'm%20interested%20to%20work%20together."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center hover:bg-[#20ba5a] pointer-events-auto"

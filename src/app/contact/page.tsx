@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Loader2, Mountain, Leaf } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import dynamic from 'next/dynamic';
@@ -40,7 +40,7 @@ const ContactPage = () => {
                         CONTACT
                     </h1>
                     <p className="mt-8 text-xl md:text-2xl font-alegreya italic max-w-2xl mx-auto text-senoa-green/80">
-                        "We’d love to hear from you. Let’s create something brewing."
+                        "We'd love to hear from you. Come visit us for good vibes and great views."
                     </p>
                 </section>
 
@@ -51,7 +51,7 @@ const ContactPage = () => {
                             <div>
                                 <h2 className="text-4xl font-bold font-belleza mb-8">Get in Touch</h2>
                                 <p className="font-alegreya text-lg opacity-80 mb-8">
-                                    Whether you have a question about our menu, need to book a large table, or just want to say hello, we're here.
+                                    Whether you have a question about our menu, need to book a table for a large group, or just want to say hello, we're here to help.
                                 </p>
                             </div>
 
@@ -62,7 +62,11 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold font-belleza mb-1">Visit Us</h3>
-                                        <p className="font-alegreya opacity-80 text-lg">Ground Floor, Urban Hub, Near City Walk Mall,<br /> Indiranagar, Bengaluru – 560038</p>
+                                        <p className="font-alegreya opacity-80 text-lg">
+                                            Top Floor, Lord Krishna Boutique Luxury Stay<br />
+                                            Temple Road, McLeod Ganj<br />
+                                            Dharamshala, HP – 176219
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="flex items-start group">
@@ -71,7 +75,7 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold font-belleza mb-1">Call Us</h3>
-                                        <a href="tel:+917979057085" className="font-alegreya opacity-80 text-lg hover:underline decoration-senoa-green underline-offset-4 pointer-events-auto block transition-all">+91 79790 57085</a>
+                                        <a href="tel:+917560090700" className="font-alegreya opacity-80 text-lg hover:underline decoration-senoa-green underline-offset-4 pointer-events-auto block transition-all">+91 75600 90700</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start group">
@@ -80,7 +84,7 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold font-belleza mb-1">Email Us</h3>
-                                        <a href="mailto:hello@beanscafe.com" className="font-alegreya opacity-80 text-lg hover:underline decoration-senoa-green underline-offset-4 pointer-events-auto block transition-all">hello@beanscafe.com</a>
+                                        <a href="mailto:hello@viewnvibecafe.com" className="font-alegreya opacity-80 text-lg hover:underline decoration-senoa-green underline-offset-4 pointer-events-auto block transition-all">hello@viewnvibecafe.com</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start group">
@@ -89,7 +93,16 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold font-belleza mb-1">Opening Hours</h3>
-                                        <p className="font-alegreya opacity-80 text-lg">Mon – Sun: 9:00 AM – 11:00 PM</p>
+                                        <p className="font-alegreya opacity-80 text-lg">Mon – Sun: 8:00 AM – 10:00 PM</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start group">
+                                    <div className="p-4 bg-senoa-green/5 rounded-full mr-6 group-hover:bg-senoa-green group-hover:text-senoa-cream transition-colors duration-300">
+                                        <Leaf className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold font-belleza mb-1">Pure Vegetarian</h3>
+                                        <p className="font-alegreya opacity-80 text-lg">100% Vegetarian Kitchen</p>
                                     </div>
                                 </div>
                             </div>

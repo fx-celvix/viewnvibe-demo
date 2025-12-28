@@ -304,7 +304,7 @@ export default function CheckoutPage() {
                             </button>
                             <div>
                                 <h1 className="text-base font-bold">Checkout</h1>
-                                <p className="text-xs text-muted-foreground">Beans Cafe, Bangalore</p>
+                                <p className="text-xs text-muted-foreground">View N Vibe, McLeod Ganj</p>
                             </div>
                         </div>
                     </header>

@@ -53,14 +53,18 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'coffee-light': '#F5F1E8',
-        'coffee-dark': '#3E2F28',
-        'coffee-accent': '#CFA76E',
-        'senoa-cream': '#F3EFEA',
-        'senoa-green': '#004D33',
-        'senoa-green-dark': '#003322',
-        'senoa-neutral': '#A0A0A0',
-        'dashboard-bg': '#f4efea',
+        // View N Vibe Café Color Palette
+        'senoa-cream': '#F9F2E9',       // Light background - Cream / Off-White
+        'senoa-green': '#3A2E2A',       // Main brand color - Deep Coffee
+        'senoa-green-dark': '#2A1F1A',  // Darker version of Deep Coffee
+        'senoa-accent': '#C17E5C',      // Accent / CTA - Warm Terracotta
+        'senoa-highlight': '#D6B399',   // Secondary highlight - Soft Tan
+        'senoa-text': '#4A4A4A',        // Text & contrast - Charcoal Gray
+        'senoa-neutral': '#A0A0A0',     // Neutral gray
+        'dashboard-bg': '#F9F2E9',      // Dashboard background - Cream
+        'coffee-light': '#F9F2E9',
+        'coffee-dark': '#3A2E2A',
+        'coffee-accent': '#C17E5C',
 
 
       },

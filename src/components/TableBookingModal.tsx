@@ -316,8 +316,8 @@ export const TableBookingModal = ({ isOpen, onClose }: TableBookingModalProps) =
             </div>
 
             <p className="text-sm text-gray-500">Need to make changes?</p>
-            <a href="tel:+917979057085" className="inline-flex items-center gap-2 text-senoa-green font-bold hover:underline">
-                <Phone size={16} /> Call Us: +91 7979057085
+            <a href="tel:+917560090700" className="inline-flex items-center gap-2 text-senoa-green font-bold hover:underline">
+                <Phone size={16} /> Call Us: +91 75600 90700
             </a>
 
             <button onClick={onClose} className="block w-full bg-senoa-green text-white py-3 rounded-lg font-bold hover:brightness-110 shadow-lg mt-4">

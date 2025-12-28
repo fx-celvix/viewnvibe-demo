@@ -24,8 +24,8 @@ const alegreya = Alegreya({
 })
 
 export const metadata: Metadata = {
-  title: "BEANS Cafe",
-  description: "A cozy neighborhood cafe serving great coffee, fresh bites, and relaxed vibes.",
+  title: "View N Vibe Café | Pure Vegetarian Rooftop Café in McLeod Ganj",
+  description: "View N Vibe Café is a pure vegetarian rooftop restaurant in McLeod Ganj, Dharamshala offering delicious food, peaceful ambiance, and stunning mountain views.",
 };
 
 

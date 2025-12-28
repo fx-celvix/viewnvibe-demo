@@ -27,7 +27,7 @@ interface DashboardSidebarProps {
 
 const SupportModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
-  const supportNumber = '7979057085';
+  const supportNumber = '7560090700';
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="bg-white rounded-lg shadow-xl w-full max-w-sm" onClick={e => e.stopPropagation()}>
@@ -108,13 +108,13 @@ export const DashboardSidebar = ({ onCreateOrder, isOpen, onClose }: DashboardSi
             <div className="relative w-12 h-12">
               <Image
                 src="/images/hero.png"
-                alt="Beans Cafe"
+                alt="View N Vibe Café"
                 fill
                 className="object-contain"
               />
             </div>
-            <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600">
-              Beans Dashboard
+            <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-senoa-green to-senoa-accent">
+              View N Vibe
             </h1>
           </div>
 
@@ -135,7 +135,7 @@ export const DashboardSidebar = ({ onCreateOrder, isOpen, onClose }: DashboardSi
                     key={item.path}
                     href={item.path}
                     className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors text-sm ${isActive
-                      ? 'bg-green-50 text-senoa-green font-medium'
+                      ? 'bg-senoa-cream text-senoa-green font-medium'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                       }`}
                   >

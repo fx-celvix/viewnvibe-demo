@@ -25,7 +25,7 @@ export const Header = () => {
                 <div className="container mx-auto">
                     <div className="flex items-center justify-between h-16 px-6 md:px-8 bg-senoa-cream/80 backdrop-blur-md rounded-sm shadow-sm border border-senoa-green/10">
                         <Link href="/" className="flex items-center space-x-2">
-                            <span className="text-2xl font-bold font-belleza text-senoa-green tracking-wide">Beans Cafe</span>
+                            <span className="text-2xl font-bold font-belleza text-senoa-green tracking-wide">View N Vibe</span>
                         </Link>
                         <nav className="flex items-center space-x-8">
                             {navLinks.map(link => (
@@ -43,7 +43,7 @@ export const Header = () => {
                 {/* Mobile Top Header */}
                 <div className="absolute top-0 left-0 right-0 z-30 p-6 flex justify-between items-center pointer-events-none">
                     <Link href="/" className="pointer-events-auto">
-                        <span className="text-xl font-bold font-belleza text-senoa-green tracking-wide drop-shadow-sm">Beans Cafe</span>
+                        <span className="text-xl font-bold font-belleza text-senoa-green tracking-wide drop-shadow-sm">View N Vibe</span>
                     </Link>
 
                     <button

@@ -16,7 +16,8 @@ const markerIcon = new L.Icon({
 });
 
 export function ContactMap() {
-    const position: [number, number] = [25.58055, 85.08372];
+    // McLeod Ganj, Dharamshala coordinates
+    const position: [number, number] = [32.2426, 76.3213];
 
     return (
         <MapContainer center={position} zoom={15} scrollWheelZoom={true} style={{ height: '100%', width: '100%' }}>
@@ -26,8 +27,9 @@ export function ContactMap() {
             />
             <Marker position={position} icon={markerIcon}>
                 <Popup>
-                    <b>Beans Cafe</b><br />
-                    Haroon Nagar, Sector-2
+                    <b>View N Vibe Café</b><br />
+                    Temple Road, McLeod Ganj<br />
+                    Dharamshala, HP
                 </Popup>
             </Marker>
         </MapContainer>

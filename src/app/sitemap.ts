@@ -2,7 +2,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://mybiryanicorner.com';
+  const baseUrl = 'https://viewnvibecafe.com';
 
   return [
     {
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-     {
+    {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
