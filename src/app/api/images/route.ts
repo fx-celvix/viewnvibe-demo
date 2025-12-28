@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
         }
 
         // Step 5: Return with aggressive caching
-        return new NextResponse(optimizedImage, {
+        return new NextResponse(new Uint8Array(optimizedImage), {
             status: 200,
             headers: {
                 'Content-Type': contentType,
