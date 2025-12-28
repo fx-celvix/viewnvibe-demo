@@ -66,7 +66,7 @@ export const Footer = () => {
 
                 <div className="pt-8 border-t border-senoa-cream/10 flex flex-col md:flex-row justify-between items-center text-xs opacity-40 font-mono uppercase tracking-widest">
                     <p>&copy; {year} View N Vibe Café. All Rights Reserved.</p>
-                    <p className="mt-2 md:mt-0">Design by Antigravity</p>
+                    <p className="mt-2 md:mt-0">Design by Celvix</p>
                 </div>
             </div>
         </footer>

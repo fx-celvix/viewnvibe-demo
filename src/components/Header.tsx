@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Menu, X, Home, Utensils, Calendar, Phone } from 'lucide-react';
+import { Menu, X, Home, Utensils, Calendar, Phone, Mountain } from 'lucide-react';
 
 import { usePathname } from 'next/navigation';
 
@@ -25,6 +25,9 @@ export const Header = () => {
                 <div className="container mx-auto">
                     <div className="flex items-center justify-between h-16 px-6 md:px-8 bg-senoa-cream/80 backdrop-blur-md rounded-sm shadow-sm border border-senoa-green/10">
                         <Link href="/" className="flex items-center space-x-2">
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-senoa-cream to-senoa-highlight/30 flex items-center justify-center">
+                                <Mountain className="h-6 w-6 text-senoa-accent" />
+                            </div>
                             <span className="text-2xl font-bold font-belleza text-senoa-green tracking-wide">View N Vibe</span>
                         </Link>
                         <nav className="flex items-center space-x-8">
@@ -42,7 +45,10 @@ export const Header = () => {
             <div className="md:hidden">
                 {/* Mobile Top Header */}
                 <div className="absolute top-0 left-0 right-0 z-30 p-6 flex justify-between items-center pointer-events-none">
-                    <Link href="/" className="pointer-events-auto">
+                    <Link href="/" className="pointer-events-auto flex items-center space-x-2">
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-senoa-cream to-senoa-highlight/30 flex items-center justify-center shadow-sm">
+                            <Mountain className="h-5 w-5 text-senoa-accent" />
+                        </div>
                         <span className="text-xl font-bold font-belleza text-senoa-green tracking-wide drop-shadow-sm">View N Vibe</span>
                     </Link>
 

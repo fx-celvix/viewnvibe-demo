@@ -56,7 +56,7 @@ const DeliveryPopup = ({ isOpen, onClose, onOrder }: { isOpen: boolean; onClose:
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={onClose}>
       <div className="relative bg-senoa-cream rounded-xl shadow-2xl w-full max-w-sm overflow-hidden border border-senoa-green/20" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-4 right-4 p-1 rounded-full bg-black/10 text-senoa-green hover:bg-black/20 transition z-10">
+        <button onClick={onClose} className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-senoa-green hover:bg-white shadow-lg transition z-10">
           <X className="h-5 w-5" />
         </button>
         <div className="w-full h-48 relative">
