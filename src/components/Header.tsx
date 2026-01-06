@@ -172,7 +172,7 @@ export const Header = () => {
                 )}
 
                 {/* Mobile Sticky Dock */}
-                <nav className="fixed bottom-6 left-4 right-4 z-50 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-full shadow-2xl p-4 flex justify-between items-center px-8">
+                <nav className="fixed bottom-6 left-4 right-4 z-50 bg-white/70 backdrop-blur-xl border border-white/40 rounded-full shadow-2xl p-4 flex justify-between items-center px-8">
                     <Link href="/" className={`flex flex-col items-center gap-1 ${pathname === '/' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
                         <Home className="h-5 w-5" />
                         <span className="text-[10px] font-bold uppercase tracking-wider">Home</span>
