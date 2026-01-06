@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Utensils, Calendar, Phone, Mountain, MapPin, Instagram } from 'lucide-react';
+import { Menu, X, Home, Utensils, Calendar, Phone, Mountain, MapPin, Instagram, Camera } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export const Header = () => {
@@ -20,6 +20,7 @@ export const Header = () => {
     const navLinks = [
         { href: '/', label: 'Home' },
         { href: '/delivery', label: 'Order Online' },
+        { href: '/vibe', label: 'The Vibe' },
         { href: '/about', label: 'About' },
         { href: '/contact', label: 'Contact' },
     ];
@@ -172,22 +173,26 @@ export const Header = () => {
                 )}
 
                 {/* Mobile Sticky Dock */}
-                <nav className="fixed bottom-6 left-4 right-4 z-50 bg-white/70 backdrop-blur-xl border border-white/40 rounded-full shadow-2xl p-4 flex justify-between items-center px-8">
+                <nav className="fixed bottom-6 left-4 right-4 z-50 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-full shadow-2xl p-4 flex justify-between items-center px-6">
                     <Link href="/" className={`flex flex-col items-center gap-1 ${pathname === '/' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
                         <Home className="h-5 w-5" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Home</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider">Home</span>
                     </Link>
                     <Link href="/delivery" className={`flex flex-col items-center gap-1 ${pathname === '/delivery' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
                         <Utensils className="h-5 w-5" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Order</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider">Order</span>
+                    </Link>
+                    <Link href="/vibe" className={`flex flex-col items-center gap-1 ${pathname === '/vibe' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
+                        <Camera className="h-5 w-5" />
+                        <span className="text-[9px] font-bold uppercase tracking-wider">Vibe</span>
                     </Link>
                     <Link href="/table-booking" className={`flex flex-col items-center gap-1 ${pathname === '/table-booking' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
                         <Calendar className="h-5 w-5" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Book</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider">Book</span>
                     </Link>
                     <Link href="/contact" className={`flex flex-col items-center gap-1 ${pathname === '/contact' ? 'text-[#3A2E2A]' : 'text-gray-400'}`}>
                         <Phone className="h-5 w-5" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Contact</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider">Contact</span>
                     </Link>
                 </nav>
             </div>

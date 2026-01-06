@@ -16,13 +16,16 @@ import {
   Coffee,
   Utensils,
   Mountain,
-  Wind
+  Wind,
+  Sparkles
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { TableBookingModal } from '@/components/TableBookingModal';
 import { Footer } from '@/components/Footer';
+
+import galleryImg from '../../public/images/gallery.jpg';
 
 // --- Components ---
 
@@ -78,7 +81,22 @@ export default function Home() {
   const [showDeliveryPopup, setShowDeliveryPopup] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
   const router = useRouter();
+
+  const heroImages = [
+    '/images/hero/hero_1.png',
+    '/images/hero/hero_2.jpeg',
+    '/images/hero/hero_3.jpg',
+    '/images/hero/hero_4.jpg',
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowDeliveryPopup(true), 5000); // 5s delay
@@ -123,60 +141,99 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* SECTION 1: CINEMATIC HERO */}
+        {/* SECTION 1: HERO WITH ANIMATED BACKGROUND */}
         <section className="relative h-screen w-full overflow-hidden">
-          {/* Background Image */}
+          {/* Animated Background Image with Ken Burns Effect */}
+          {/* Animated Background Slideshow */}
           <div className="absolute inset-0">
-            <Image
-              src="/images/hero-interior.png" // Using the interior shot as it's high quality
-              alt="View N Vibe Interior"
-              fill
-              className="object-cover animate-in fade-in duration-[1.5s] scale-105"
-              priority
-            />
-            {/* Dark Overlay for Text Legibility */}
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+            {heroImages.map((src, index) => (
+              <div
+                key={src}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentHeroIndex ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <div className="relative w-full h-full animate-slow-zoom">
+                  <Image
+                    src={src}
+                    alt={`View N Vibe Rooftop ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                    unoptimized={true}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Hero Content */}
-          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 pt-20">
-            <div className="flex items-center gap-2 mb-6 animate-in slide-in-from-bottom-4 fade-in duration-1000 delay-200">
-              <span className="bg-green-600/20 backdrop-blur-md border border-green-500/30 text-green-100 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                100% Pure Vegetarian
-              </span>
+
+          {/* Gradient Overlay - Darker for better text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+
+          {/* Main Content - Centered */}
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 md:px-8">
+
+            {/* Pure Veg Badge */}
+            <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-2.5 rounded-full mb-8">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-white text-xs font-medium uppercase tracking-widest">Pure Vegetarian</span>
             </div>
-            <span className="text-white/80 text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-6 animate-in slide-in-from-bottom-4 fade-in duration-1000 delay-300">
-              McLeod Ganj, Dharamshala
-            </span>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-belleza text-white mb-6 leading-none tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500">
-              VIEW N VIBE
-            </h1>
-            <p className="max-w-xl text-lg md:text-xl font-alegreya text-white/90 mb-10 leading-relaxed animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-700">
-              A sanctuary above the clouds. <br className="hidden md:block" />
-              Where culinary artistry meets breathtaking Himalayan views.
+
+            {/* Location */}
+            <p className="text-white/60 text-xs md:text-sm tracking-[0.4em] uppercase mb-6">
+              McLeod Ganj • Dharamshala
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-1000">
+            {/* Main Title */}
+            <h1 className="font-belleza text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight mb-8 drop-shadow-lg">
+              View N Vibe
+            </h1>
+
+            {/* Divider Line */}
+            <div className="w-16 h-px bg-[#C17E5C] mb-8" />
+
+            {/* Tagline */}
+            <p className="text-white/90 text-lg md:text-xl lg:text-2xl font-alegreya max-w-2xl mb-12 leading-relaxed">
+              A rooftop café where Himalayan sunsets meet artisanal cuisine
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="bg-white text-senoa-green px-8 py-4 min-w-[180px] text-xs font-bold uppercase tracking-widest hover:bg-senoa-cream transition-colors"
+                className="bg-[#C17E5C] text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#a86a4a] transition-colors duration-300 shadow-lg"
               >
                 Book a Table
               </button>
               <button
                 onClick={() => handleNavigate('/delivery')}
-                className="bg-transparent border border-white text-white px-8 py-4 min-w-[180px] text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-senoa-green transition-colors"
+                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A2E2A] transition-all duration-300"
               >
                 View Menu
               </button>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
-            <ChevronDown className="h-8 w-8" />
+          {/* Bottom Stats Bar */}
+          <div className="absolute bottom-0 left-0 right-0 z-20">
+            <div className="bg-black/40 backdrop-blur-md border-t border-white/10">
+              <div className="max-w-4xl mx-auto px-6 py-5 flex items-center justify-center gap-10 md:gap-16">
+                <div className="flex items-center gap-2">
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <span className="text-white font-bold text-lg">4.8</span>
+                  <span className="text-white/50 text-xs uppercase tracking-wider hidden sm:inline">Google</span>
+                </div>
+                <div className="w-px h-6 bg-white/20" />
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-bold text-lg">160+</span>
+                  <span className="text-white/50 text-xs uppercase tracking-wider hidden sm:inline">Dishes</span>
+                </div>
+                <div className="w-px h-6 bg-white/20" />
+                <div className="flex items-center gap-2">
+                  <Mountain className="h-5 w-5 text-[#C17E5C]" />
+                  <span className="text-white/50 text-xs uppercase tracking-wider hidden sm:inline">Rooftop</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -221,23 +278,37 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Image Collage */}
-            <div className="w-full lg:w-1/2 relative h-[500px] md:h-[600px]">
-              <div className="absolute top-0 right-0 w-[85%] h-[85%] z-10">
+            {/* Right: Modern Image Composition */}
+            <div className="w-full lg:w-1/2 relative h-[500px] md:h-[600px] group perspective-1000">
+              {/* Abstract decorative shape */}
+              <div className="absolute top-1/4 right-0 w-3/4 h-3/4 bg-[#C17E5C]/5 rounded-full blur-[100px] -z-10" />
+
+              {/* Main Background Image - Organic Shape */}
+              <div className="absolute top-0 right-0 w-[90%] h-[85%] z-10 rounded-tr-[5rem] rounded-bl-[5rem] rounded-tl-3xl rounded-br-3xl overflow-hidden shadow-2xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] group-hover:rotate-1">
                 <Image
-                  src="/images/Coffee mug.jpg"
-                  alt="Coffee with view"
+                  src="/images/2nd_image.jpeg"
+                  alt="Rooftop dining ambiance"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 left-0 w-[50%] h-[50%] z-20 border-8 border-white shadow-xl">
-                <Image
-                  src="/images/hero.png"
-                  alt="Food Detail"
-                  fill
-                  className="object-contain bg-senoa-cream" // hero.png is transparent, needs bg
-                />
+
+              {/* Floating Foreground Card */}
+              <div className="absolute bottom-12 left-0 w-[45%] aspect-[3/4] z-20 transition-transform duration-500 group-hover:-translate-y-6 group-hover:rotate-[-2deg]">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border-[6px] border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)]">
+                  <Image
+                    src="/images/Food 1.jpg"
+                    alt="Signature Dish"
+                    fill
+                    className="object-cover transform transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Decorative Badge */}
+                <div className="absolute -right-5 -bottom-5 bg-white p-3.5 rounded-full shadow-lg border border-gray-100 animate-pulse">
+                  <Sparkles className="h-5 w-5 text-[#C17E5C] text-senoa-accent" />
+                </div>
               </div>
             </div>
 
@@ -344,9 +415,18 @@ export default function Home() {
                   Captured Moments
                 </h2>
               </div>
-              <p className="max-w-md text-right text-gray-500 font-alegreya text-lg hidden md:block">
-                A glimpse into the daily magic at View N Vibe. <br />From sunrise coffees to starry nights.
-              </p>
+              <div className="flex flex-col items-end gap-4 hidden md:flex">
+                <p className="max-w-md text-right text-gray-500 font-alegreya text-lg">
+                  A glimpse into the daily magic at View N Vibe. <br />From sunrise coffees to starry nights.
+                </p>
+                <button
+                  onClick={() => handleNavigate('/vibe')}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C17E5C] to-[#a86a4a] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  <span>Vibe Check</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
 
             {/* Desktop: Masonry-style Grid */}
@@ -354,8 +434,15 @@ export default function Home() {
 
               {/* Item 1 - Large Tall */}
               <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/Gallery 1.jpg" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                <Image
+                  src={galleryImg}
+                  alt="Gallery"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ transform: 'rotate(90deg) scale(1.4)' }}
+                  placeholder="blur"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
               </div>
 
               {/* Item 2 */}

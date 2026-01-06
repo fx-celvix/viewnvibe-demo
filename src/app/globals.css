@@ -142,6 +142,20 @@
     }
   }
 
+  .animate-slow-zoom {
+    animation: slow-zoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes slow-zoom {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
   .animate-slide {
     animation: slide 28s linear infinite;
   }

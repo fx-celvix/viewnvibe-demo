@@ -436,7 +436,7 @@ const EditMenuPage = () => {
                                 <span className="md:hidden">Add</span>
                             </button>
 
-                            <button onClick={confirmSaveChanges} className="w-1/3 sm:w-auto flex items-center justify-center space-x-2 text-sm font-semibold p-2 rounded-lg bg-senoa-green text-white hover:bg-senoa-green-dark transition-colors">
+                            <button onClick={confirmSaveChanges} className="w-1/3 sm:w-auto flex items-center justify-center space-x-2 text-sm font-semibold px-4 py-2 rounded-lg bg-senoa-green text-white hover:bg-senoa-green-dark transition-colors shadow-md">
                                 <Save className="h-4 w-4" />
                                 <span className="hidden md:inline">Save All</span>
                                 <span className="md:hidden">Save</span>
@@ -445,92 +445,187 @@ const EditMenuPage = () => {
                     </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-8 pb-24">
                     {menuData.map(category => (
-                        <div key={category.id} className="bg-white rounded-lg shadow-sm border">
-                            <div className="p-4 flex justify-between items-center">
+                        <div key={category.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <div className="px-6 py-4 flex justify-between items-center bg-white border-b border-gray-100">
                                 <input
                                     type="text"
                                     value={category.title}
                                     onChange={(e) => handleCategoryTitleChange(category.id, e.target.value)}
-                                    className="text-lg font-bold border-b-2 border-transparent focus:border-green-500 outline-none w-full bg-transparent"
+                                    className="text-xl font-bold border-none focus:ring-0 outline-none w-full bg-transparent text-gray-800 placeholder-gray-400"
+                                    placeholder="Category Name"
                                 />
-                                <div className="flex items-center">
-                                    <button onClick={() => confirmRemoveCategory(category.id)} className="text-red-500 hover:text-red-700 p-1.5 rounded-full hover:bg-red-50 transition-colors">
-                                        <Trash2 className="h-4 w-4" />
+                                <div className="flex items-center space-x-2">
+                                    <button onClick={() => confirmRemoveCategory(category.id)} className="text-red-400 hover:text-red-600 p-2 rounded-full hover:bg-red-50 transition-colors">
+                                        <Trash2 className="h-5 w-5" />
                                     </button>
-                                    <button onClick={() => handleCategoryToggle(category.id)} className="p-1.5">
-                                        {openCategories[category.id] ? <ChevronUp /> : <ChevronDown />}
+                                    <button onClick={() => handleCategoryToggle(category.id)} className="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-50 transition-colors">
+                                        {openCategories[category.id] ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                                     </button>
                                 </div>
                             </div>
 
                             {openCategories[category.id] && (
-                                <div className="p-4 border-t space-y-4">
+                                <div className="p-6 bg-gray-50/30 space-y-6">
                                     {category.items.map((item, itemIndex) => (
-                                        <div key={itemIndex} className="p-4 border rounded-lg flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-start bg-gray-50/50 relative">
-                                            <GripVertical className="h-5 w-5 text-gray-400 mt-2 cursor-grab hidden sm:block" />
-                                            <div className="relative w-full sm:w-24 h-auto sm:h-24 flex-shrink-0">
-                                                <Image src={item.imageUrl} alt={item.name} width={100} height={100} className="rounded-md object-cover w-full sm:w-24 h-auto sm:h-24" />
-                                                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white opacity-0 hover:opacity-100 transition-opacity rounded-md space-x-2">
-                                                    <label htmlFor={`image-upload-${category.id}-${itemIndex}`} className="cursor-pointer p-2 rounded-full hover:bg-black/50">
-                                                        <ImageIcon className="h-5 w-5" />
-                                                    </label>
-                                                    <button onClick={() => openImageUrlModal(category.id, itemIndex)} className="cursor-pointer p-2 rounded-full hover:bg-black/50">
-                                                        <LinkIcon className="h-5 w-5" />
-                                                    </button>
-                                                </div>
-                                                <input
-                                                    id={`image-upload-${category.id}-${itemIndex}`}
-                                                    type="file"
-                                                    accept="image/*"
-                                                    className="hidden"
-                                                    onChange={(e) => handleImageUpload(e, category.id, itemIndex)}
-                                                />
+                                        <div key={itemIndex} className="bg-white rounded-xl border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-200 p-6 relative group">
+                                            {/* Drag Handle */}
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 cursor-move text-gray-300 hover:text-gray-400 hidden sm:block">
+                                                <GripVertical className="h-5 w-5" />
                                             </div>
-                                            <div className="flex-grow space-y-3 w-full">
-                                                <input type="text" value={item.name} onChange={(e) => handleItemChange(category.id, itemIndex, 'name', e.target.value)} className="w-full border-b text-md font-semibold pb-1 outline-none focus:border-green-500 bg-transparent" />
-                                                <textarea value={item.description} onChange={(e) => handleItemChange(category.id, itemIndex, 'description', e.target.value)} className="w-full border rounded-md p-2 text-xs h-20 outline-none focus:ring-1 focus:ring-green-500 bg-transparent" />
 
-                                                <div className="space-y-2">
-                                                    {item.prices.map((price, priceIndex) => (
-                                                        <div key={priceIndex} className="flex items-center space-x-2">
-                                                            <BookOpen className="h-4 w-4 text-gray-500 flex-shrink-0" />
-                                                            <input type="text" placeholder="Label (e.g., Full)" value={price.label} onChange={(e) => handlePriceChange(category.id, itemIndex, priceIndex, 'label', e.target.value)} className="w-24 border-b text-sm outline-none focus:border-green-500 bg-transparent" />
-                                                            <IndianRupee className="h-4 w-4 text-gray-500 flex-shrink-0" />
-                                                            <input type="number" placeholder="Price" value={price.price} onChange={(e) => handlePriceChange(category.id, itemIndex, priceIndex, 'price', e.target.value)} onBlur={() => handlePriceBlur(category.id, itemIndex, priceIndex, 'price')} className="w-20 border-b text-sm outline-none focus:border-green-500 bg-transparent" />
-                                                            <button onClick={() => removePriceOption(category.id, itemIndex, priceIndex)} className="text-red-500 hover:text-red-700 p-1 rounded-full"><Minus size={14} /></button>
-                                                        </div>
-                                                    ))}
-                                                    <button onClick={() => addPriceOption(category.id, itemIndex)} className="text-blue-500 text-xs font-semibold flex items-center space-x-1"><Plus size={14} /><span>Add Price</span></button>
-                                                </div>
-
-                                                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
-                                                    <label className="flex items-center text-xs"><input type="checkbox" checked={item.isVeg} onChange={(e) => handleItemChange(category.id, itemIndex, 'isVeg', e.target.checked)} className="mr-1 accent-green-600" /> Veg</label>
-                                                    <label className="flex items-center text-xs"><input type="checkbox" checked={item.popular} onChange={(e) => handleItemChange(category.id, itemIndex, 'popular', e.target.checked)} className="mr-1 accent-orange-500" /> Popular</label>
-                                                    <label className="flex items-center text-xs"><input type="checkbox" checked={item.mustTry} onChange={(e) => handleItemChange(category.id, itemIndex, 'mustTry', e.target.checked)} className="mr-1 accent-yellow-500" /> Must Try</label>
-                                                    <label className="flex items-center text-xs"><input type="checkbox" checked={item.isNew} onChange={(e) => handleItemChange(category.id, itemIndex, 'isNew', e.target.checked)} className="mr-1 accent-blue-500" /> New</label>
-                                                    <label className="flex items-center text-xs">
-                                                        <Percent className="h-3 w-3 mr-1 text-gray-500" />
-                                                        <input
-                                                            type="number"
-                                                            value={item.gst_percent ?? 5}
-                                                            onChange={(e) => handleItemChange(category.id, itemIndex, 'gst_percent', e.target.value === '' ? '' : parseFloat(e.target.value) || 0)}
-                                                            onBlur={() => handlePriceBlur(category.id, itemIndex, -1, 'gst_percent')}
-                                                            className="w-12 border-b text-xs outline-none focus:border-green-500 bg-transparent"
+                                            <div className="flex flex-col sm:flex-row gap-6 pl-0 sm:pl-8">
+                                                {/* Image Section */}
+                                                <div className="relative group/image flex-shrink-0">
+                                                    <div className="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-gray-100 relative border border-gray-100">
+                                                        <Image
+                                                            src={item.imageUrl}
+                                                            alt={item.name}
+                                                            width={128}
+                                                            height={128}
+                                                            className="w-full h-full object-cover"
+                                                            onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/150x150/e2e8f0/94a3b8?text=Image' }}
                                                         />
-                                                        GST
-                                                    </label>
+                                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                                            <label htmlFor={`image-upload-${category.id}-${itemIndex}`} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/40 cursor-pointer transition-colors" title="Upload Image">
+                                                                <Upload className="h-4 w-4" />
+                                                            </label>
+                                                            <button onClick={() => openImageUrlModal(category.id, itemIndex)} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-colors" title="Image URL">
+                                                                <LinkIcon className="h-4 w-4" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <input
+                                                        id={`image-upload-${category.id}-${itemIndex}`}
+                                                        type="file"
+                                                        accept="image/*"
+                                                        className="hidden"
+                                                        onChange={(e) => handleImageUpload(e, category.id, itemIndex)}
+                                                    />
+                                                    <div className="text-[10px] text-gray-400 text-center mt-2">{item.imageHint || '150 x 150'}</div>
+                                                </div>
+
+                                                {/* Content Section */}
+                                                <div className="flex-grow space-y-4">
+                                                    {/* Top Row: Name & Delete */}
+                                                    <div className="flex justify-between items-start gap-4">
+                                                        <div className="flex-grow">
+                                                            <input
+                                                                type="text"
+                                                                value={item.name}
+                                                                onChange={(e) => handleItemChange(category.id, itemIndex, 'name', e.target.value)}
+                                                                className="w-full text-lg font-bold text-gray-900 border-none p-0 focus:ring-0 placeholder-gray-400 bg-transparent"
+                                                                placeholder="Item Name"
+                                                            />
+                                                            <div className="h-px bg-gray-100 mt-2 mb-3" />
+                                                        </div>
+                                                        <button
+                                                            onClick={() => removeItem(category.id, itemIndex)}
+                                                            className="text-gray-300 hover:text-red-500 transition-colors p-1"
+                                                            title="Delete Item"
+                                                        >
+                                                            <Trash2 className="h-5 w-5" />
+                                                        </button>
+                                                    </div>
+
+                                                    {/* Description */}
+                                                    <textarea
+                                                        value={item.description}
+                                                        onChange={(e) => handleItemChange(category.id, itemIndex, 'description', e.target.value)}
+                                                        className="w-full text-sm text-gray-600 border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 min-h-[80px] resize-y placeholder-gray-300"
+                                                        placeholder="Description, e.g., 'Additional cheese topping to enhance richness.'"
+                                                    />
+
+                                                    {/* Pricing Section */}
+                                                    <div className="flex flex-wrap items-center gap-4 py-2">
+                                                        <BookOpen className="h-4 w-4 text-gray-400" />
+                                                        {item.prices.map((price, priceIndex) => (
+                                                            <div key={priceIndex} className="flex items-center bg-gray-50 rounded-lg px-3 py-1.5 border border-gray-200 hover:border-gray-300 transition-colors">
+                                                                <input
+                                                                    type="text"
+                                                                    placeholder="Label"
+                                                                    value={price.label}
+                                                                    onChange={(e) => handlePriceChange(category.id, itemIndex, priceIndex, 'label', e.target.value)}
+                                                                    className="w-20 bg-transparent text-sm border-none focus:ring-0 p-0 text-gray-700 placeholder-gray-400 font-medium"
+                                                                />
+                                                                <div className="w-px h-4 bg-gray-300 mx-2" />
+                                                                <IndianRupee className="h-3 w-3 text-gray-400 mr-1" />
+                                                                <input
+                                                                    type="number"
+                                                                    placeholder="0"
+                                                                    value={price.price}
+                                                                    onChange={(e) => handlePriceChange(category.id, itemIndex, priceIndex, 'price', e.target.value)}
+                                                                    onBlur={() => handlePriceBlur(category.id, itemIndex, priceIndex, 'price')}
+                                                                    className="w-16 bg-transparent text-sm border-none focus:ring-0 p-0 text-gray-900 font-bold"
+                                                                />
+                                                                {item.prices.length > 1 && (
+                                                                    <button
+                                                                        onClick={() => removePriceOption(category.id, itemIndex, priceIndex)}
+                                                                        className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
+                                                                    >
+                                                                        <X className="h-3 w-3" />
+                                                                    </button>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                        <button onClick={() => addPriceOption(category.id, itemIndex)} className="text-blue-600 hover:text-blue-700 text-xs font-semibold flex items-center bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition-colors">
+                                                            <Plus className="h-3 w-3 mr-1" /> Add Price
+                                                        </button>
+                                                    </div>
+
+                                                    {/* Badges & Options */}
+                                                    <div className="flex flex-wrap items-center gap-6 pt-2 border-t border-gray-50 mt-2">
+                                                        <label className="flex items-center space-x-2 cursor-pointer group/check">
+                                                            <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${item.isVeg ? 'bg-green-500 border-green-500' : 'border-gray-300 group-hover/check:border-green-500'}`}>
+                                                                {item.isVeg && <div className="w-2.5 h-2.5 bg-white rounded-full sm:rounded-[1px]" />}
+                                                                {/* Using a custom dot for Veg symbol style if needed, or checkmark */}
+                                                                {item.isVeg && <div className="hidden sm:block text-white text-[10px] font-bold">✓</div>}
+                                                            </div>
+                                                            <input type="checkbox" checked={item.isVeg} onChange={(e) => handleItemChange(category.id, itemIndex, 'isVeg', e.target.checked)} className="hidden" />
+                                                            <span className="text-sm font-medium text-gray-600 group-hover/check:text-gray-800">Veg</span>
+                                                        </label>
+
+                                                        <label className="flex items-center space-x-2 cursor-pointer group/check">
+                                                            <input type="checkbox" checked={item.popular} onChange={(e) => handleItemChange(category.id, itemIndex, 'popular', e.target.checked)} className="rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                                                            <span className="text-sm text-gray-600 group-hover/check:text-gray-800">Popular</span>
+                                                        </label>
+
+                                                        <label className="flex items-center space-x-2 cursor-pointer group/check">
+                                                            <input type="checkbox" checked={item.mustTry} onChange={(e) => handleItemChange(category.id, itemIndex, 'mustTry', e.target.checked)} className="rounded border-gray-300 text-yellow-500 focus:ring-yellow-500" />
+                                                            <span className="text-sm text-gray-600 group-hover/check:text-gray-800">Must Try</span>
+                                                        </label>
+
+                                                        <label className="flex items-center space-x-2 cursor-pointer group/check">
+                                                            <input type="checkbox" checked={item.isNew} onChange={(e) => handleItemChange(category.id, itemIndex, 'isNew', e.target.checked)} className="rounded border-gray-300 text-blue-500 focus:ring-blue-500" />
+                                                            <span className="text-sm text-gray-600 group-hover/check:text-gray-800">New</span>
+                                                        </label>
+
+                                                        <div className="flex items-center ml-auto">
+                                                            <div className="bg-gray-100 rounded-lg px-2 py-1 flex items-center border border-gray-200 focus-within:ring-2 focus-within:ring-green-500/20 focus-within:border-green-500 transition-all">
+                                                                <Percent className="h-3 w-3 text-gray-400 mr-2" />
+                                                                <input
+                                                                    type="number"
+                                                                    value={item.gst_percent ?? 5}
+                                                                    onChange={(e) => handleItemChange(category.id, itemIndex, 'gst_percent', e.target.value === '' ? '' : parseFloat(e.target.value) || 0)}
+                                                                    onBlur={() => handlePriceBlur(category.id, itemIndex, -1, 'gst_percent')}
+                                                                    className="w-8 bg-transparent text-sm border-none focus:ring-0 p-0 text-right font-medium text-gray-700"
+                                                                />
+                                                                <span className="text-xs text-gray-500 ml-1">GST</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <button onClick={() => removeItem(category.id, itemIndex)} className="text-red-500 hover:text-red-700 p-1 rounded-full absolute top-2 right-2 sm:relative sm:top-auto sm:right-auto sm:self-start">
-                                                <Trash2 className="h-4 w-4" />
-                                            </button>
                                         </div>
                                     ))}
-                                    <button onClick={() => addNewItem(category.id)} className="w-full flex items-center justify-center space-x-2 text-sm font-semibold p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors mt-4">
-                                        <PlusCircle className="h-4 w-4" />
-                                        <span>Add New Item to {category.title}</span>
+
+                                    <button
+                                        onClick={() => addNewItem(category.id)}
+                                        className="w-full py-4 border-2 border-dashed border-gray-200 rounded-xl text-gray-400 hover:text-green-600 hover:border-green-200 hover:bg-green-50/50 transition-all duration-200 flex flex-col items-center justify-center gap-2 group"
+                                    >
+                                        <PlusCircle className="h-8 w-8 group-hover:scale-110 transition-transform" />
+                                        <span className="font-semibold">Add New Item to {category.title}</span>
                                     </button>
                                 </div>
                             )}
