@@ -5,39 +5,36 @@ import { Header } from '@/components/Header';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, Instagram, MapPin, Camera, Sparkles, Sun, Mountain, Coffee, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Static imports to preserve aspect ratio and orientation
-import featuredHeroImg from '../../../public/images/Vibe/20858E33-520D-4E4E-A0D7-1314CB673382.webp';
-import img1 from '../../../public/images/gallery.webp';
-import img2 from '../../../public/images/Vibe/2DD191AD-19E3-49B3-A442-5596AA833599.webp';
-import img3 from '../../../public/images/Vibe/37767AFA-1DEC-4802-9176-D20F7C5D56EC.webp';
-import img4 from '../../../public/images/Vibe/408B9EFD-73DB-43E2-B2F3-2C8C09EB1486.webp';
-import img5 from '../../../public/images/Vibe/4C6ACB8D-35A3-4C9C-B27B-87AA20304B7B.webp';
-import img6 from '../../../public/images/Vibe/538C4BA8-E6C9-4E46-B9B2-0C0C7A2EC35E.webp';
-import img7 from '../../../public/images/Vibe/5D1794C4-FD19-4079-8170-9D5CCD6E3729.webp';
-import img8 from '../../../public/images/Vibe/607AD8FD-E26E-4F3B-BFCC-275B4E6217B9.webp';
-import img9 from '../../../public/images/Vibe/647E6906-C141-451B-B762-65BCBB7F9049.webp';
-import img10 from '../../../public/images/Vibe/7C0FC4BF-CA2A-4ED8-AFA4-1E4742E5F836.webp';
-import img11 from '../../../public/images/Vibe/7C32E0B2-F4BC-469F-B8AB-8E9541379CA7.webp';
-import img12 from '../../../public/images/Vibe/8AAE3FD3-1C2A-48D0-B35B-9D2E4A2FC7E4.webp';
-import img13 from '../../../public/images/Vibe/8B4E4C60-0E15-471F-8593-64D2CAC4891B.webp';
-import img14 from '../../../public/images/Vibe/9C042051-BFB6-40F4-BF59-BD6FCB2F1251.webp';
-import img15 from '../../../public/images/Vibe/AF810570-B990-4C59-B4CF-11FDF730843E.webp';
-import img16 from '../../../public/images/Vibe/B4E7FE73-CBD1-488F-8F0B-2A7B5815B53F.webp';
-import img17 from '../../../public/images/Vibe/C22E1202-B928-45AE-B23C-A79EFDCCBE20.webp';
-import img18 from '../../../public/images/Vibe/E4FD447A-B8E6-41B1-B87D-872143930769.webp';
-import img19 from '../../../public/images/Vibe/F0459837-0937-4A95-A908-4AFAA20BE975.webp';
-import img20 from '../../../public/images/Vibe/FA9A6170-99B2-4490-A2B7-7D116D555202.webp';
-import img21 from '../../../public/images/Vibe/IMG_4773.webp';
-import img22 from '../../../public/images/Vibe/IMG_4778.webp';
-import img23 from '../../../public/images/Vibe/IMG_4780.webp';
-import img24 from '../../../public/images/Vibe/IMG_4782.webp';
-import img25 from '../../../public/images/Vibe/IMG_4783.webp';
-import img27 from '../../../public/images/Vibe/IMG_4787.webp';
+// Using string paths instead of static imports for custom loader compatibility
+const featuredHeroImgPath = '/images/Vibe/20858E33-520D-4E4E-A0D7-1314CB673382.webp';
 
 const vibeImages = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-    img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-    img21, img22, img23, img24, img25, img27
+    '/images/gallery.webp',
+    '/images/Vibe/2DD191AD-19E3-49B3-A442-5596AA833599.webp',
+    '/images/Vibe/37767AFA-1DEC-4802-9176-D20F7C5D56EC.webp',
+    '/images/Vibe/408B9EFD-73DB-43E2-B2F3-2C8C09EB1486.webp',
+    '/images/Vibe/4C6ACB8D-35A3-4C9C-B27B-87AA20304B7B.webp',
+    '/images/Vibe/538C4BA8-E6C9-4E46-B9B2-0C0C7A2EC35E.webp',
+    '/images/Vibe/5D1794C4-FD19-4079-8170-9D5CCD6E3729.webp',
+    '/images/Vibe/607AD8FD-E26E-4F3B-BFCC-275B4E6217B9.webp',
+    '/images/Vibe/647E6906-C141-451B-B762-65BCBB7F9049.webp',
+    '/images/Vibe/7C0FC4BF-CA2A-4ED8-AFA4-1E4742E5F836.webp',
+    '/images/Vibe/7C32E0B2-F4BC-469F-B8AB-8E9541379CA7.webp',
+    '/images/Vibe/8AAE3FD3-1C2A-48D0-B35B-9D2E4A2FC7E4.webp',
+    '/images/Vibe/8B4E4C60-0E15-471F-8593-64D2CAC4891B.webp',
+    '/images/Vibe/9C042051-BFB6-40F4-BF59-BD6FCB2F1251.webp',
+    '/images/Vibe/AF810570-B990-4C59-B4CF-11FDF730843E.webp',
+    '/images/Vibe/B4E7FE73-CBD1-488F-8F0B-2A7B5815B53F.webp',
+    '/images/Vibe/C22E1202-B928-45AE-B23C-A79EFDCCBE20.webp',
+    '/images/Vibe/E4FD447A-B8E6-41B1-B87D-872143930769.webp',
+    '/images/Vibe/F0459837-0937-4A95-A908-4AFAA20BE975.webp',
+    '/images/Vibe/FA9A6170-99B2-4490-A2B7-7D116D555202.webp',
+    '/images/Vibe/IMG_4773.webp',
+    '/images/Vibe/IMG_4778.webp',
+    '/images/Vibe/IMG_4780.webp',
+    '/images/Vibe/IMG_4782.webp',
+    '/images/Vibe/IMG_4783.webp',
+    '/images/Vibe/IMG_4787.webp'
 ];
 
 // Gallery images (all except the first featured one)
@@ -287,11 +284,10 @@ export default function VibePage() {
                     <div className="relative group overflow-hidden rounded-3xl cursor-default">
                         <div className="aspect-[16/9] md:aspect-[21/9]">
                             <Image
-                                src={featuredHeroImg}
+                                src={featuredHeroImgPath}
                                 alt="Featured moment"
                                 fill
                                 className="object-cover transition-all duration-700 group-hover:scale-105"
-                                placeholder="blur"
                             />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

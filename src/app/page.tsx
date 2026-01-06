@@ -25,7 +25,7 @@ import { Header } from '@/components/Header';
 import { TableBookingModal } from '@/components/TableBookingModal';
 import { Footer } from '@/components/Footer';
 
-import galleryImg from '../../public/images/gallery.webp';
+// Using string path instead of static import for custom loader compatibility
 
 // --- Components ---
 
@@ -85,10 +85,10 @@ export default function Home() {
   const router = useRouter();
 
   const heroImages = [
-    '/images/hero/hero_1.webp',
-    '/images/hero/hero_2.webp',
-    '/images/hero/hero_3.webp',
-    '/images/hero/hero_4.webp',
+    '/images/hero/hero1.webp',
+    '/images/hero/hero2.webp',
+    '/images/hero/hero3.webp',
+    '/images/hero/hero4.webp',
   ];
 
   useEffect(() => {
@@ -435,12 +435,11 @@ export default function Home() {
               {/* Item 1 - Large Tall */}
               <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl">
                 <Image
-                  src={galleryImg}
+                  src="/images/gallery.webp"
                   alt="Gallery"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   style={{ transform: 'rotate(90deg) scale(1.4)' }}
-                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
               </div>
