@@ -120,6 +120,28 @@
     }
   }
 
+  .animate-slide-gallery {
+    animation: slide-gallery 8s ease-in-out infinite;
+  }
+
+  @keyframes slide-gallery {
+
+    0%,
+    30% {
+      transform: translateX(0%);
+    }
+
+    35%,
+    65% {
+      transform: translateX(-100%);
+    }
+
+    70%,
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
   .animate-slide {
     animation: slide 28s linear infinite;
   }

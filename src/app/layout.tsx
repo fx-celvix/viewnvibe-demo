@@ -6,7 +6,6 @@ import "./globals.css";
 import { MenuProvider } from '@/context/MenuContext';
 import 'leaflet/dist/leaflet.css';
 import dynamic from 'next/dynamic';
-import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 
 const OrderStatusNotifier = dynamic(() => import('@/components/OrderStatusNotifier').then(mod => mod.OrderStatusNotifier));
 
@@ -40,7 +39,6 @@ export default function RootLayout({
         <MenuProvider>
           {children}
           <OrderStatusNotifier />
-          <FloatingWhatsApp />
         </MenuProvider>
 
       </body>
