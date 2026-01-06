@@ -107,7 +107,7 @@ export const DashboardSidebar = ({ onCreateOrder, isOpen, onClose }: DashboardSi
           <div className="flex flex-col items-center justify-center py-4 border-b space-y-2">
             <div className="relative w-12 h-12">
               <Image
-                src="/images/hero.png"
+                src="/images/hero.webp"
                 alt="View N Vibe Café"
                 fill
                 className="object-contain"

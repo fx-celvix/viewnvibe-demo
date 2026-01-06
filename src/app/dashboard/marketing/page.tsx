@@ -67,7 +67,7 @@ const growthHacks = [
         title: 'Welcome Campaign',
         content: 'Thank them for visiting / ordering → Share a 10% off coupon for the next order.',
         why: 'Encourages repeat business right from the first interaction.',
-        imageUrl: 'https://i.pinimg.com/736x/ce/d9/bd/ced9bda12f998e0fe70463732bc6a7c4.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/ce/d9/bd/ced9bda12f998e0fe70463732bc6a7c4.webp',
         imageHint: 'welcome gift',
         offer: '10% OFF'
     },
@@ -75,7 +75,7 @@ const growthHacks = [
         title: 'Birthday & Anniversary Specials',
         content: '“Happy Birthday 🎉! Celebrate with us and enjoy a free dessert on your order today.”',
         why: 'Customers feel special → higher chance of visiting again.',
-        imageUrl: 'https://i.pinimg.com/736x/97/67/7d/97677d0ad9b034f2aad012d2bf69a445.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/97/67/7d/97677d0ad9b034f2aad012d2bf69a445.webp',
         imageHint: 'birthday gift',
         offer: 'FREE DESSERT'
     },
@@ -83,7 +83,7 @@ const growthHacks = [
         title: 'Weekend Flash Sale',
         content: '“🔥 Weekend Special: Buy 1 Biryani, Get 1 Free (Friday–Sunday only). Limited orders, hurry!”',
         why: 'Creates urgency + boosts weekend sales.',
-        imageUrl: 'https://i.pinimg.com/736x/78/6b/f4/786bf4d3b085acc2281c43a3cf81fdb0.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/78/6b/f4/786bf4d3b085acc2281c43a3cf81fdb0.webp',
         imageHint: 'weekend sale',
         offer: 'BUY 1 GET 1'
     },
@@ -91,7 +91,7 @@ const growthHacks = [
         title: 'Festival Campaigns',
         content: '“Celebrate Diwali with our Festive Thali ✨ Pre-order now and get 15% off.”',
         why: 'Customers expect special menus & offers during festivals.',
-        imageUrl: 'https://i.pinimg.com/736x/72/de/a7/72dea7823cb81842233673210a1c34e2.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/72/de/a7/72dea7823cb81842233673210a1c34e2.webp',
         imageHint: 'festival food',
         offer: '15% OFF'
     },
@@ -99,7 +99,7 @@ const growthHacks = [
         title: 'Loyalty Reward Campaign',
         content: '“You’ve ordered 5 times with us! 🎁 Your next starter is on us.”',
         why: 'Builds long-term loyalty & repeat orders.',
-        imageUrl: 'https://i.pinimg.com/736x/ff/3a/32/ff3a3286f81b9de422e8eea422311210.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/ff/3a/32/ff3a3286f81b9de422e8eea422311210.webp',
         imageHint: 'loyalty reward',
         offer: 'FREE STARTER'
     },
@@ -107,7 +107,7 @@ const growthHacks = [
         title: 'Re-engagement Campaign',
         content: '“We miss you! Come back and enjoy 20% off on your next order. Use code: WEMISSYOU.”',
         why: 'Brings back customers who haven’t ordered in 30+ days.',
-        imageUrl: 'https://i.pinimg.com/736x/fa/d9/7a/fad97aeefdad2f391bf2e00c704d1b72.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/fa/d9/7a/fad97aeefdad2f391bf2e00c704d1b72.webp',
         imageHint: 're-engagement',
         offer: '20% OFF'
     },
@@ -115,7 +115,7 @@ const growthHacks = [
         title: 'New Menu Launch',
         content: '“Introducing our new Butter Chicken Pizza 🍕🔥 Available this weekend. Reply ‘YES’ to book your table.”',
         why: 'Creates excitement & curiosity.',
-        imageUrl: 'https://i.pinimg.com/736x/4f/ed/02/4fed0299e175444c40909b6dba886dd9.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/4f/ed/02/4fed0299e175444c40909b6dba886dd9.webp',
         imageHint: 'new menu item',
         offer: 'NEW ITEM'
     },
@@ -123,7 +123,7 @@ const growthHacks = [
         title: 'Feedback Campaign',
         content: '“How was your meal today? Rate us 1–5 🌟. Share your feedback & get 10% off your next order.”',
         why: 'Improves online reputation + encourages repeat purchase.',
-        imageUrl: 'https://i.pinimg.com/736x/dd/61/35/dd6135527edbce6cedbe8bf23c8106bb.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/dd/61/35/dd6135527edbce6cedbe8bf23c8106bb.webp',
         imageHint: 'customer feedback',
         offer: 'GET 10% OFF'
     },
@@ -131,7 +131,7 @@ const growthHacks = [
         title: 'Event Promotion',
         content: '“Live Music Night 🎶 at View N Vibe this Saturday! Book your table now.”',
         why: 'Boosts dine-in sales & creates community buzz.',
-        imageUrl: 'https://i.pinimg.com/736x/6b/0a/ec/6b0aec27834c327e679cff8a73d3f61c.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/6b/0a/ec/6b0aec27834c327e679cff8a73d3f61c.webp',
         imageHint: 'live music event',
         offer: 'LIVE MUSIC'
     }
@@ -141,7 +141,7 @@ const smartAddons = [
     {
         title: 'Join Loyalty Program',
         description: 'Reward repeat customers with points, discounts, and exclusive offers to keep them coming back.',
-        imageUrl: 'https://i.pinimg.com/736x/e5/9e/c4/e59ec48d3210266a140cb6441d20da0e.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/e5/9e/c4/e59ec48d3210266a140cb6441d20da0e.webp',
         imageHint: 'loyalty program',
         icon: <Award size={16} />,
         whatsappMessage: "Hi, I'm interested in the Loyalty Program add-on for my restaurant."
@@ -149,7 +149,7 @@ const smartAddons = [
     {
         title: 'Payment Integration',
         description: 'Accept secure online payments seamlessly with multiple options like UPI, cards, and wallets.',
-        imageUrl: 'https://i.pinimg.com/736x/98/4b/43/984b43a9bb165c2f24f453b7dc7dd228.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/98/4b/43/984b43a9bb165c2f24f453b7dc7dd228.webp',
         imageHint: 'payment integration',
         icon: <CreditCard size={16} />,
         whatsappMessage: "Hi, I'm interested in the Payment Integration add-on for my restaurant."
@@ -157,7 +157,7 @@ const smartAddons = [
     {
         title: 'Delivery Integration',
         description: 'Connect with top delivery partners to manage and track orders smoothly in one place.',
-        imageUrl: 'https://i.pinimg.com/736x/f6/bb/ee/f6bbeea559cd245a50525f88f9e9b767.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/f6/bb/ee/f6bbeea559cd245a50525f88f9e9b767.webp',
         imageHint: 'delivery integration',
         icon: <Truck size={16} />,
         whatsappMessage: "Hi, I'm interested in the Delivery Integration add-on for my restaurant."
@@ -165,7 +165,7 @@ const smartAddons = [
     {
         title: 'Order via Table QR Code',
         description: 'Let diners scan a QR code to view the menu, place orders, and pay contactless and hassle-free.',
-        imageUrl: 'https://i.pinimg.com/736x/53/85/b5/5385b5e9de18b2624d296bf46660fc2f.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/53/85/b5/5385b5e9de18b2624d296bf46660fc2f.webp',
         imageHint: 'qr code order',
         icon: <QrCode size={16} />,
         whatsappMessage: "Hi, I'm interested in the Table QR Code Ordering add-on for my restaurant."
@@ -173,7 +173,7 @@ const smartAddons = [
     {
         title: 'Customizable Coupon Codes',
         description: 'Create and share unique discount codes to attract customers and boost repeat sales',
-        imageUrl: 'https://i.pinimg.com/736x/6b/08/31/6b08319c34571c01e76c02674f6164a2.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/6b/08/31/6b08319c34571c01e76c02674f6164a2.webp',
         imageHint: 'coupon codes',
         icon: <Tag size={16} />,
         whatsappMessage: "Hi, I'm interested in the Customizable Coupon Codes add-on for my restaurant."
@@ -181,7 +181,7 @@ const smartAddons = [
     {
         title: 'Feedback Tracking System',
         description: 'Collect and monitor customer reviews to improve service and build stronger loyalty.',
-        imageUrl: 'https://i.pinimg.com/736x/a5/d5/52/a5d55222120253c0572e338ca2cbfc6b.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/a5/d5/52/a5d55222120253c0572e338ca2cbfc6b.webp',
         imageHint: 'feedback system',
         icon: <FeedbackIcon size={16} />,
         whatsappMessage: "Hi, I'm interested in the Feedback Tracking System add-on for my restaurant."
@@ -189,7 +189,7 @@ const smartAddons = [
     {
         title: 'WhatsApp Messaging Tool',
         description: 'Instantly connect with your customers through WhatsApp—send offers, order updates, and reminders with just one click.',
-        imageUrl: 'https://i.pinimg.com/736x/05/ed/32/05ed32b92799864762e0cf5a53081370.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/05/ed/32/05ed32b92799864762e0cf5a53081370.webp',
         imageHint: 'whatsapp tool',
         icon: <WhatsAppIcon size={16} />,
         whatsappMessage: "Hi, I'm interested in the WhatsApp Messaging Tool add-on for my restaurant."
@@ -435,7 +435,7 @@ const MarketingPage = () => {
                 </div>
                 <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8">
                     <Image
-                        src="https://i.pinimg.com/736x/f6/13/b0/f613b049cf1274b8ab6e2be4a450f8ab.jpg"
+                        src="https://i.pinimg.com/736x/f6/13/b0/f613b049cf1274b8ab6e2be4a450f8ab.webp"
                         alt="Marketing background"
                         layout="fill"
                         objectFit="cover"
@@ -493,7 +493,7 @@ const MarketingPage = () => {
                             </div>
                             <div className="flex items-center mt-2 space-x-3">
                                 <div className='border rounded-md p-1 bg-white'>
-                                    <Image src="https://i.pinimg.com/736x/32/ec/71/32ec71adaed17836f7473cd9efe2b3d5.jpg" alt="sendgrid logo" width={70} height={20} />
+                                    <Image src="https://i.pinimg.com/736x/32/ec/71/32ec71adaed17836f7473cd9efe2b3d5.webp" alt="sendgrid logo" width={70} height={20} />
                                 </div>
                                 <p className="text-sm text-muted-foreground">
                                     To increase the limit, please upgrade to a paid plan on SendGrid. <a href="https://sendgrid.com/en-us/pricing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Check Pricing</a>
@@ -577,7 +577,7 @@ const MarketingPage = () => {
 
                     <div className="bg-white p-6 rounded-lg shadow-sm border">
                         <div className="relative mb-4">
-                            <Image src="https://i.pinimg.com/736x/ce/c9/60/cec9602bbf2724dfe52c041be0677675.jpg" alt="WhatsApp Marketing" width={500} height={200} className="rounded-lg object-cover w-full h-auto" />
+                            <Image src="https://i.pinimg.com/736x/ce/c9/60/cec9602bbf2724dfe52c041be0677675.webp" alt="WhatsApp Marketing" width={500} height={200} className="rounded-lg object-cover w-full h-auto" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-lg"></div>
                             <a
                                 href="https://wa.me/7979057085?text=Hi%2C%20I%E2%80%99d%20like%20to%20use%20the%20WhatsApp%20add-on%20to%20connect%20with%20customers"

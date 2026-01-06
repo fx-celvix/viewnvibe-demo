@@ -43,7 +43,7 @@ const AboutPage = () => {
                             </div>
                             <div className="relative w-full h-[500px] rounded-sm overflow-hidden shadow-2xl bg-black/5 group">
                                 <Image
-                                    src="/images/About.jpg"
+                                    src="/images/About.webp"
                                     alt="View N Vibe Café Interior"
 
                                     fill

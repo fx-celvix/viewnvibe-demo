@@ -17,42 +17,26 @@ async function processDirectory(dir) {
 
         if (stat.isDirectory()) {
             await processDirectory(filePath);
-        } else if (/\.(jpg|jpeg|png|webp)$/i.test(file)) {
+        } else if (/\.(jpg|jpeg|png)$/i.test(file)) {
+            // Skip if filename is already webp (e.g. accidentally named image.webp.jpg? Unlikely but safe)
+
+            const ext = path.extname(file);
+            const newFilePath = filePath.substring(0, filePath.lastIndexOf(ext)) + '.webp';
+
             try {
-                console.log(`Processing: ${filePath}`);
-                // Read the file buffer to avoid locking issues if ensuring atomic writes
-                const inputBuffer = fs.readFileSync(filePath);
-                const image = sharp(inputBuffer);
-                const metadata = await image.metadata();
+                console.log(`Converting: ${filePath} -> ${newFilePath}`);
 
-                let shouldProcess = false;
-                if (metadata.width > 2500 || metadata.size > 1000000) { // arbitrary threshold or just compress all
-                    shouldProcess = true;
+                await sharp(filePath)
+                    .rotate() // Auto-rotate fixes orientation
+                    .resize({ width: 1920, withoutEnlargement: true }) // Max width 1920 for web
+                    .webp({ quality: 75, effort: 4 }) // Effort 4 is balanced speed/compression
+                    .toFile(newFilePath);
+
+                // Verify new file exists and has size
+                if (fs.existsSync(newFilePath) && fs.statSync(newFilePath).size > 0) {
+                    fs.unlinkSync(filePath); // Delete original
+                    console.log(`Deleted original: ${filePath}`);
                 }
-
-                // Always compress to ensure quality reduction
-                let processed = image;
-
-                // Resize if too large
-                if (metadata.width > 2500) {
-                    processed = processed.resize({ width: 2500 });
-                }
-
-                // Rotate automatically based on EXIF (critical for the rotation issues we faced!)
-                processed = processed.rotate();
-
-                // Compress
-                if (metadata.format === 'jpeg' || metadata.format === 'jpg') {
-                    processed = processed.jpeg({ quality: 80, mozjpeg: true });
-                } else if (metadata.format === 'png') {
-                    processed = processed.png({ quality: 80, compressionLevel: 8 });
-                } else if (metadata.format === 'webp') {
-                    processed = processed.webp({ quality: 80 });
-                }
-
-                const buffer = await processed.toBuffer();
-                fs.writeFileSync(filePath, buffer);
-                console.log(`Compressed: ${filePath}`);
             } catch (err) {
                 console.error(`Error processing ${filePath}:`, err.message);
             }
@@ -60,5 +44,5 @@ async function processDirectory(dir) {
     }
 }
 
-console.log('Starting compression...');
-processDirectory(directory).then(() => console.log('All images compressed.'));
+console.log('Starting conversion to WebP...');
+processDirectory(directory).then(() => console.log('All images converted to WebP.'));

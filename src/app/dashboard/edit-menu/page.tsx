@@ -318,7 +318,7 @@ const EditMenuPage = () => {
             name: 'New Item',
             description: '',
             prices: [{ label: 'Half', price: 0 }, { label: 'Full', price: 0 }],
-            imageUrl: 'https://placehold.co/150x150.png',
+            imageUrl: 'https://placehold.co/150x150.webp',
             imageHint: 'new item',
             isVeg: true,
             popular: false,

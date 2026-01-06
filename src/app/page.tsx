@@ -25,7 +25,7 @@ import { Header } from '@/components/Header';
 import { TableBookingModal } from '@/components/TableBookingModal';
 import { Footer } from '@/components/Footer';
 
-import galleryImg from '../../public/images/gallery.jpg';
+import galleryImg from '../../public/images/gallery.webp';
 
 // --- Components ---
 
@@ -44,7 +44,7 @@ const DeliveryPopup = ({ isOpen, onClose, onOrder }: { isOpen: boolean; onClose:
         {/* Image Section */}
         <div className="relative w-full h-56">
           <Image
-            src="/images/food-delivery.png"
+            src="/images/food-delivery.webp"
             alt="Food Delivery"
             fill
             className="object-cover"
@@ -85,10 +85,10 @@ export default function Home() {
   const router = useRouter();
 
   const heroImages = [
-    '/images/hero/hero_1.png',
-    '/images/hero/hero_2.jpeg',
-    '/images/hero/hero_3.jpg',
-    '/images/hero/hero_4.jpg',
+    '/images/hero/hero_1.webp',
+    '/images/hero/hero_2.webp',
+    '/images/hero/hero_3.webp',
+    '/images/hero/hero_4.webp',
   ];
 
   useEffect(() => {
@@ -119,10 +119,10 @@ export default function Home() {
   };
 
   const cuisines = [
-    { name: 'North Indian', image: '/images/Food 1.jpg', desc: 'Rich & Creamy Curries' },
-    { name: 'Italian', image: '/images/Food 2.jpg', desc: 'Wood-fired Pizzas' },
-    { name: 'Tibetan', image: '/images/Food 3.jpg', desc: 'Authentic Himalayan Taste' },
-    { name: 'Chinese', image: '/images/Food 4.jpg', desc: 'Spicy Stir-fries' },
+    { name: 'North Indian', image: '/images/Food 1.webp', desc: 'Rich & Creamy Curries' },
+    { name: 'Italian', image: '/images/Food 2.webp', desc: 'Wood-fired Pizzas' },
+    { name: 'Tibetan', image: '/images/Food 3.webp', desc: 'Authentic Himalayan Taste' },
+    { name: 'Chinese', image: '/images/Food 4.webp', desc: 'Spicy Stir-fries' },
   ];
 
   return (
@@ -286,7 +286,7 @@ export default function Home() {
               {/* Main Background Image - Organic Shape */}
               <div className="absolute top-0 right-0 w-[90%] h-[85%] z-10 rounded-tr-[5rem] rounded-bl-[5rem] rounded-tl-3xl rounded-br-3xl overflow-hidden shadow-2xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] group-hover:rotate-1">
                 <Image
-                  src="/images/2nd_image.jpeg"
+                  src="/images/2nd_image.webp"
                   alt="Rooftop dining ambiance"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -298,7 +298,7 @@ export default function Home() {
               <div className="absolute bottom-12 left-0 w-[45%] aspect-[3/4] z-20 transition-transform duration-500 group-hover:-translate-y-6 group-hover:rotate-[-2deg]">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-[6px] border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)]">
                   <Image
-                    src="/images/Food 1.jpg"
+                    src="/images/Food 1.webp"
                     alt="Signature Dish"
                     fill
                     className="object-cover transform transition-transform duration-700 group-hover:scale-110"
@@ -336,7 +336,7 @@ export default function Home() {
               onClick={() => handleNavigate('/delivery')}
               className="md:col-span-1 relative h-[300px] md:h-full group cursor-pointer overflow-hidden rounded-2xl"
             >
-              <Image src="/images/cuisine-indian.png" alt="Indian Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <Image src="/images/cuisine-indian.webp" alt="Indian Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
 
@@ -351,7 +351,7 @@ export default function Home() {
               onClick={() => handleNavigate('/delivery')}
               className="md:col-span-1 relative h-[300px] md:h-full group cursor-pointer overflow-hidden rounded-2xl"
             >
-              <Image src="/images/cuisine-italian.png" alt="Italian Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <Image src="/images/cuisine-italian.webp" alt="Italian Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
 
@@ -366,7 +366,7 @@ export default function Home() {
               onClick={() => handleNavigate('/delivery')}
               className="md:col-span-1 relative h-[300px] md:h-full group cursor-pointer overflow-hidden rounded-2xl"
             >
-              <Image src="/images/cuisine-continental.png" alt="Continental Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <Image src="/images/cuisine-continental.webp" alt="Continental Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
 
@@ -381,7 +381,7 @@ export default function Home() {
               onClick={() => handleNavigate('/delivery')}
               className="md:col-span-1 relative h-[300px] md:h-full group cursor-pointer overflow-hidden rounded-2xl"
             >
-              <Image src="/images/cuisine-middle-eastern.png" alt="Middle Eastern Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <Image src="/images/cuisine-middle-eastern.webp" alt="Middle Eastern Cuisine" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
 
@@ -447,7 +447,7 @@ export default function Home() {
 
               {/* Item 2 */}
               <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/Gallery 2.jpg" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/Gallery 2.webp" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
 
               {/* Item 3 - Text Card (Visit Us) */}
@@ -462,17 +462,17 @@ export default function Home() {
 
               {/* Item 4 */}
               <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/Gallery 3.jpg" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/Gallery 3.webp" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
 
               {/* Item 5 */}
               <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/Gallery 1.jpg" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/Gallery 1.webp" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
 
               {/* Item 6 - Wide */}
               <div className="col-span-2 row-span-1 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/hero-interior.png" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/hero-interior.webp" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
                   <span className="text-white font-belleza text-2xl drop-shadow-lg">Interior Vibes</span>
                 </div>
@@ -480,7 +480,7 @@ export default function Home() {
 
               {/* Item 7 */}
               <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-2xl">
-                <Image src="/images/Food 1.jpg" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/Food 1.webp" alt="Gallery" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
 
               {/* Item 8 - Instagram Card */}
@@ -505,37 +505,37 @@ export default function Home() {
                   {/* First set of 3 items */}
                   <div className="flex-shrink-0 w-full grid grid-cols-3 gap-2">
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 1.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 1.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 2.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 2.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 3.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 3.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                   </div>
                   {/* Second set of 3 items */}
                   <div className="flex-shrink-0 w-full grid grid-cols-3 gap-2">
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Food 1.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Food 1.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/cuisine-indian.png" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/cuisine-indian.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/cuisine-italian.png" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/cuisine-italian.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                   </div>
                   {/* Third set (duplicate first for seamless loop) */}
                   <div className="flex-shrink-0 w-full grid grid-cols-3 gap-2">
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 1.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 1.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 2.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 2.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                     <div className="relative h-[150px] rounded-xl overflow-hidden">
-                      <Image src="/images/Gallery 3.jpg" alt="Gallery" fill className="object-cover" />
+                      <Image src="/images/Gallery 3.webp" alt="Gallery" fill className="object-cover" />
                     </div>
                   </div>
                 </div>
@@ -543,7 +543,7 @@ export default function Home() {
 
               {/* Bottom: Full Width Image */}
               <div className="relative h-[200px] w-full rounded-xl overflow-hidden">
-                <Image src="/images/hero-interior.png" alt="Interior View" fill className="object-cover" />
+                <Image src="/images/hero-interior.webp" alt="Interior View" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                   <span className="text-white font-belleza text-lg drop-shadow-lg">Interior Vibes</span>
@@ -630,7 +630,7 @@ export default function Home() {
               {/* Left: Image */}
               <div className="relative h-[400px] lg:h-[550px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/boutique-room.png"
+                  src="/images/boutique-room.webp"
                   alt="Lord Krishna Boutique Stay"
                   fill
                   className="object-cover"
@@ -754,7 +754,7 @@ export default function Home() {
               <div className="relative h-[400px] lg:h-[500px]">
                 <div className="absolute inset-0 rounded-3xl overflow-hidden">
                   <Image
-                    src="/images/live-music.png"
+                    src="/images/live-music.webp"
                     alt="Live Music Events"
                     fill
                     className="object-cover"

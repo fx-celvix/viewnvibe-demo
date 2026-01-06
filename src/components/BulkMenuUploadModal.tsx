@@ -24,7 +24,7 @@ export const BulkMenuUploadModal: React.FC<BulkMenuUploadModalProps> = ({ isOpen
                 Description: 'Spicy and tangy chicken chunks',
                 Price: 250,
                 Veg: 'No',
-                ImageURL: 'https://example.com/image.jpg',
+                ImageURL: 'https://example.com/image.webp',
                 GST: 5
             },
             {
@@ -33,7 +33,7 @@ export const BulkMenuUploadModal: React.FC<BulkMenuUploadModalProps> = ({ isOpen
                 Description: 'Creamy paneer curry',
                 Price: 200,
                 Veg: 'Yes',
-                ImageURL: 'https://example.com/paneer.jpg',
+                ImageURL: 'https://example.com/paneer.webp',
                 GST: 5
             }
         ];
@@ -104,7 +104,7 @@ export const BulkMenuUploadModal: React.FC<BulkMenuUploadModalProps> = ({ isOpen
                 description: row['Description'] || '',
                 prices: prices.length > 0 ? prices : [{ label: 'Price', price: 0 }],
 
-                imageUrl: row['ImageURL'] || 'https://placehold.co/150x150.png',
+                imageUrl: row['ImageURL'] || 'https://placehold.co/150x150.webp',
                 imageHint: row['Name'] || 'food item',
                 isVeg: (row['Veg'] && String(row['Veg']).toLowerCase() === 'yes') || false,
                 isNew: false,
