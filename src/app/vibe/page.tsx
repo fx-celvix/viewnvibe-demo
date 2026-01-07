@@ -358,6 +358,8 @@ export default function VibePage() {
                                     <Image
                                         src={image}
                                         alt={`View N Vibe moment ${index + 2}`}
+                                        width={800}
+                                        height={600}
                                         className={`w-full h-auto object-cover transition-all duration-700 ${scaleVariation}`}
                                         unoptimized={true}
                                     />
@@ -526,6 +528,8 @@ export default function VibePage() {
                             key={selectedImageIndex}
                             src={vibeImages[selectedImageIndex]}
                             alt={`View N Vibe - Image ${selectedImageIndex + 1}`}
+                            width={1200}
+                            height={900}
                             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl animate-in"
                             unoptimized={true}
                         />

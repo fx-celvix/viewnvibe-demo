@@ -448,7 +448,6 @@ export default function Home() {
                   alt="Gallery"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  style={{ transform: 'rotate(90deg) scale(1.4)' }}
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
               </div>
