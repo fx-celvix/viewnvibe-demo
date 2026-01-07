@@ -99,13 +99,22 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowDeliveryPopup(true), 5000); // 5s delay
+    // Check if popup has already been shown in this session
+    const hasSeenPopup = sessionStorage.getItem('deliveryPopupShown');
+
+    let timer: NodeJS.Timeout | undefined;
+    if (!hasSeenPopup) {
+      timer = setTimeout(() => {
+        setShowDeliveryPopup(true);
+        sessionStorage.setItem('deliveryPopupShown', 'true');
+      }, 5000); // 5s delay
+    }
 
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearTimeout(timer);
+      if (timer) clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
